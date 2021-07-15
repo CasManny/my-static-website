@@ -1,0 +1,651 @@
+/* utility classes */
+
+
+:root {
+    --primary-color: #52006A;
+    --secondary-color: #CD113B;
+    --accent: #FF7600;
+    --accent-2: #FFA900;
+    --footer-color: #4E4351;
+    --links: #EEEEEE;
+}
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+}
+html {
+    scroll-behavior: smooth;
+}
+a {
+    text-decoration: none;
+}
+ul {
+    list-style: none;
+}
+.container {
+    width: 1100px;
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 0 2rem;
+}
+.btn {
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-align: center;
+    border-radius: 1px solid var(--accent-2);
+    background-color: var(--accent);
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    outline: none;
+    cursor: pointer;
+}
+.section {
+    width: 100%;
+    height: auto;
+    padding: 2rem 0;
+}
+img {
+    width: 100%;
+    height: 100%;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+/* header styling */
+.header {
+    width: 100%;
+    background-color: var(--primary-color);
+    height: 4rem;
+    z-index: 1500;
+}
+.header.fixed {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    box-shadow: 0px 12px 15px rgba(0,0,0,0.2);
+}
+.header .container {
+    height: 100%;
+}
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+.logo {
+    color: var(--links);
+    font-size: 1.7rem;
+    text-transform: uppercase;
+    font-family: 'Zen Tokyo Zoo', cursive;
+}
+.nav-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    transition: all .3s ease;
+}
+body.open .nav-menu {
+    transform: translateX(0);
+}
+body.open .menu-toggle i.fa-times {
+    display: block;
+}
+body.open .menu-toggle i.fa-bars {
+    display: none;
+}
+.nav-item {
+    margin: 0 1rem;
+}
+.nav-link {
+    color: var(--links);
+    font-family: 'Zen Tokyo Zoo', cursive;
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+    position: relative;
+}
+.nav-link::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 3px;
+    left: 0;
+    bottom: -2px;
+    background-color: var(--secondary-color);
+    transition: all ease .3s;
+
+}
+.nav-link:hover {
+    color: white;
+}
+.nav-link:hover::after {
+    width: 100%;
+}
+.menu-toggle {
+    position: absolute;
+    top: 50%;
+    right: 2rem;
+    transform: translateY(-50%);
+    cursor: pointer;
+    display: none;
+    z-index: 10000;
+    transition: all .2s ease;
+}
+.menu-toggle i {
+    color: white;
+    font-size: 1.5rem;
+}
+/* hero section styling  */
+.hero {
+    height: calc(100vh - 4rem);
+    position: relative;
+}
+
+.hero-introduction {
+    width: 100%;
+    height: 100%;
+}
+.hero-text {
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    transform: translateY(-40%);
+}
+.hero-text h5 {
+    font-size: 2rem;
+}
+.hero-text h5 .fa-hand-spock {
+    animation: shake 1.2s infinite;
+    color: var(--accent);
+}
+@keyframes shake {
+    0% {
+        transform: rotateZ(90deg);
+    }
+    100% {
+        transform: rotateZ(-40deg);
+    }
+}
+.hero-text h2 {
+    font-weight: 400;
+    font-size: 2.5rem;
+    color: var(--footer-color);
+    text-transform: capitalize;
+    margin: 5px 0;
+}
+.hero-text p {
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+.follow-me {
+    margin: 1rem 0 1.2rem;
+}
+.follow-me a {
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    background-color: var(--footer-color);
+    border-radius: 5px;
+}
+.follow-me i {
+    font-size: 1.3rem;
+    color: white;
+    line-height: 50px;
+}
+.follow-me a:nth-child(2) {
+    margin: 0 1rem;
+}
+.hero-introduction img {
+    position: absolute;
+    bottom: 0;
+    right: 2rem;
+    width: 35rem;
+    height: 100%;
+    z-index: -1;
+}
+/* end of hero section styling  */
+
+/* about section  */
+
+.about-introduction {
+    margin-top: 3rem;
+    width: 100%;
+}
+.about-img {
+    width: 20rem;
+    height: 20rem;
+    margin: 0 auto;
+}
+.about-text h1{
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    color: var(--footer-color);
+}
+.about-text h5 {
+    font-weight: 400;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+.about-text h5 span {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.about-text p {
+    line-height: 1.5;
+    font-size: 1.3rem;
+}
+.about-text .btn {
+    margin-top: 2rem;
+    background-color: var(--primary-color);
+}
+.about-text .btn .cta {
+    color: white;
+    font-weight: 700;
+}
+/* end of about section */
+
+/* services styling  */
+.services {
+    position: relative;
+    z-index: 10;
+    padding: 2rem;
+}
+.services::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgb(134, 58, 134);
+    clip-path: polygon(41% 0, 100% 0%, 75% 100%, 0% 100%);
+    z-index: -1;
+}
+.services::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: var(--footer-color);
+    z-index: -10;
+}
+.services .container {
+    width: 1100px;
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 0 1rem;
+}
+.heading {
+    font-size: 1.7rem;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    display: inline-block;
+    position: relative;
+    color: white;
+    font-weight: 200;
+    font-family: 'Zen Tokyo Zoo', cursive;
+    margin-top: 4rem;
+
+}
+.heading::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 3px;
+    background: var(--secondary-color);
+    left: 0;
+    bottom: -2px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+.service {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    border-radius: 15px;
+    transition: all .2s ease;
+}
+.service:hover {
+    background: white;
+    box-shadow: 0 15px 10px rgba(0,0,0,0.2);
+}
+.service:hover h1 {
+    color: var(--accent);
+    font-family: 'Zen Tokyo Zoo', cursive;
+    font-size: 1rem;
+}
+.service:hover p {
+    color: var(--primary-color);
+}
+.service i {
+    font-size: 1.5rem;
+    color: var(--accent-2);
+}
+.service h1 {
+    text-transform: uppercase;
+    color: white;
+    margin: 1rem 0;
+    font-weight: 200;
+    font-size: 1.5rem;
+    transition: all .2s ease-in;
+}
+.service p {
+    line-height: 1.5;
+    color: white;
+    font-size: 1.7;
+}
+/* end of services styling  */
+
+/* technologies i have used  */
+.tech-used {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+.tech-used .heading {
+    color: var(--footer-color);
+}
+.tech-container {
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    margin: 2.5rem;
+}
+.tech-container i {
+    font-size: 3rem;
+}
+.tech-container div {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.fa-figma {
+    color: purple;
+}
+.fa-html5 {
+    color: blue;
+}
+.fa-css3-alt {
+    color: rgb(7, 175, 226);
+}
+.fa-js {
+    color: rgb(231, 231, 7);
+}
+.fa-git-alt {
+    color: rgb(243, 17, 54);
+}
+/* end of technologies i have used  */
+
+/* project section styling  */
+.project-container {
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 1rem;
+}
+.project {
+    position: relative;
+    /* overflow: hidden; */
+}
+.projects .heading {
+    margin-top: 2rem 0 0 1rem;
+    color: red;
+}
+.project-details {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform: translateY(100%);
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    text-align: center;
+    display: none;
+    transition: transform 5s ease;
+    padding: 1rem;
+    padding-top: 6rem;
+}
+.project:hover .project-details {
+    display: block;
+    transform: translateY(0);
+}
+.project-details p {
+    font-size: 14px;
+    color: white;
+}
+.project-details .btn {
+    padding: 5px 10px;
+    font-size: 10px;
+}
+/* end of project section styling  */
+
+/* contact styling  */
+.contact {
+    height: auto;
+    padding-top: 3rem;
+}
+.contact .container .form-container {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 0.5rem;
+    margin: 3rem 0;
+    
+}
+.contact-details {
+    margin-top: 1rem;
+    padding: 2rem;
+    border-radius: 15px;
+    width: 100%;
+}
+.detail {
+    display: flex;
+    margin-bottom: 1.5rem;
+}
+.detail i {
+    font-size: 1.2rem;
+    margin-right: 1.5rem;
+}
+.icon-details {
+    text-align: center;
+}
+
+.form-intro h5 {
+    color: var(--secondary-color);
+    margin-top: 0;
+}
+
+.form-control {
+    width: 100%;
+    position: relative;
+    margin: 1.5rem 0;
+}
+.form-input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    outline: none;
+}
+.form-input:focus ~ label,
+.form-input:not(:placeholder-shown).form-input:not(:focus) ~ label{
+    top: -0.8rem;
+    left: 1rem;
+    font-weight: 800;
+    background: white;
+    padding: 0 10px;
+    font-size: 15px;
+}
+.form-control label {
+    position: absolute;
+    top: 0.8rem;
+    left: 0.7rem;
+    text-transform: capitalize;
+    font-weight: 700;
+    color: var(--primary-color);
+    transition: all .3s ease;
+}
+.form-control .form-input.message {
+    height: 6rem;
+}
+/* end of contact styling  */
+
+footer {
+    width: 100%;
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+footer h1 {
+    text-align: center;
+    color: white;
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: 2px;
+}
+
+/* RESPONSIVENESS  */
+/* @media screen and (max-width: 1200px) {
+       .hero-introduction img {
+        right: 0;
+        width: 50%;
+        height: 60%;
+}
+        .nav-menu {
+    display: initial; 
+    justify-items: inherit;
+}
+} */
+@media screen and (max-width: 900px) {
+    .nav-menu {
+    position: absolute;
+    left: -4rem;
+    top: 4rem;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--primary-color);
+    flex-direction: column;
+    justify-content: flex-start;
+    transform: translateX(-100%);
+}
+    .nav-item {
+        margin: 1rem 0;
+    }
+    .menu-toggle {
+        display: block;
+    }
+    .menu-toggle i.fa-times {
+        display: none;
+    }
+    .hero-introduction img {
+        right: 0;
+        width: 50%;
+        height: 50%;
+   
+}
+     .services-grid {
+    grid-template-columns: repeat(2,1fr);
+    
+}
+}
+
+@media screen and (max-width: 768px) {
+    .hero-introduction img {
+        display: none;
+    }
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    .about-text {
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-content: center;
+        flex-direction: column;
+        margin-top: 1rem;
+    }
+    .about-text button {
+        width: 100px;
+        align-self: center;
+
+    }
+    .contact .container .form-container {
+    grid-template-columns: 1fr;
+    margin-bottom: 1rem;
+   
+}
+}
+
+@media screen and (max-width: 600px) {
+       .services-grid {
+    grid-template-columns: 1fr;
+    
+}
+    .contact .container .form-container {
+    grid-template-columns: 1fr;
+    margin-bottom: 1rem;
+    height: auto;
+   
+}
+    .project-container {
+    grid-template-columns: 1fr;
+
+}
+}
+.top {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: var(--secondary-color);
+    right: 1rem;
+    bottom: 1.5rem;
+    z-index: 100;
+    cursor: pointer;
+    display: none;
+    
+}
+.top i {
+    transition: all ease 1s;
+    animation: bounce 1s infinite linear;
+    line-height: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: white;
+}
+
+@keyframes bounce {
+    0% {
+        opacity: 0;
+    }
+    100% {
+       opacity: 1;
+    }
+}
